@@ -4,7 +4,9 @@
 文字稿，並翻譯成繁體中文，顯示在一個可拖動的浮動視窗裡。
 
 全程**本機運算、CPU 跑**，不需要上傳任何音訊、也不連雲端。
-<img width="857" height="204" alt="圖片" src="https://github.com/user-attachments/assets/72cb1649-4d30-4690-8f34-b7e6d1712bb6" />
+
+<img width="857" height="212" alt="圖片" src="https://github.com/user-attachments/assets/1c602d55-f5ec-4fd5-a011-946f7aef6a1e" />
+
 
 ## 專案結構
 

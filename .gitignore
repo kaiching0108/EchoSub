@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 虛擬環境（每台機器各自重建，見 README 安裝說明）
+.venv/
+
+# 模型檔（體積大，不入 git；取得方式見 README「取得模型」）
+# 注意：tokens.txt 很小（~300KB），保留在 repo 裡，clone 後不用再抓。
+models/*.onnx
+models/*.int8.onnx
+
+# 執行時暫存
+tmp/

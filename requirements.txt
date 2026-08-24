@@ -1,0 +1,22 @@
+# 即時語音翻譯 app 相依（版本與開發機一致，確保可重現）
+# 安裝：在 live_translate 目錄下
+#   python -m venv .venv
+#   .venv\Scripts\activate
+#   pip install -r requirements.txt
+#
+# torch 用 PyTorch 官方 CPU-only 索引裝「純 CPU 版」（~200MB，跟開發機相同）。
+# 預設 PyPI 版含 CUDA 函式庫（~800MB+），也能在 CPU 跑，只是較大。
+# 若 CPU 索引連不上，可把下面 --extra-index-url 那行註解掉、
+# 再把 torch==2.13.0+cpu 改成 torch==2.13.0 即可從 PyPI 裝。
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+sherpa-onnx==1.13.6        # SenseVoice 推理
+PyAudioWPatch==0.2.12.8    # WASAPI 環回擷取
+onnxruntime==1.23.2        # Silero VAD（切句）
+OpenCC==1.4.2              # 簡體→繁體中文轉換
+numpy==2.2.6
+sentencepiece==0.2.2       # transformers 需用
+tokenizers==0.22.2         # transformers 需用
+transformers==5.15.1       # Opus-MT（MarianMTModel）翻譯
+torch==2.13.0+cpu          # 純 CPU 版（由上方 CPU 索引提供）

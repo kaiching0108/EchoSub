@@ -9,8 +9,9 @@ import os
 _HERE = os.path.dirname(os.path.abspath(__file__))
 MODEL_DIR = os.path.join(_HERE, "models")
 if not os.path.exists(os.path.join(MODEL_DIR, "model.int8.onnx")):
-    # 萬一 models/ 不在預期位置，退回絕對路徑作為備援
-    MODEL_DIR = r"D:/Downloads/EchoSub/models"
+    raise FileNotFoundError(
+        "找不到 models/model.int8.onnx，請先下載模型到 models/ 目錄（見 README「取得模型」）"
+    )
 SENSEVOICE_MODEL = os.path.join(MODEL_DIR, "model.int8.onnx")
 TOKENS = os.path.join(MODEL_DIR, "tokens.txt")
 

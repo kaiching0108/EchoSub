@@ -16,6 +16,7 @@ import capture
 import asr
 import translate
 import ui
+import export
 
 
 def main():
@@ -25,6 +26,17 @@ def main():
 
     window = ui.SubtitleWindow()
     window.set_status("● 初始化模型中…", "#ffcc66")
+
+    # 字幕自動匯出（雙語、即時附加到 logs/ 時間戳檔）
+    exporter = None
+    try:
+        exporter = export.TranscriptExporter(config.EXPORT_DIR)
+        window._append(f"系統：字幕將自動儲存至 {exporter.path}\n", "#88ff88")
+        print(f"[export] 字幕將自動儲存至 {exporter.path}", flush=True)
+    except Exception as e:
+        print("字幕存檔初始化失敗（不影響轉錄/翻譯）：", e)
+        window._append("系統：字幕存檔失敗（見終端機）\n", "#ff6666")
+
     try:
         recognizer = asr.ASR()
         translator = translate.build_translator()
@@ -47,6 +59,8 @@ def main():
             tr = translator.translate(src_text, src_lang)
         except Exception as e:
             tr = f"（翻譯失敗：{e}）"
+        if exporter:
+            exporter.write_segment(src_text, tr, src_lang)
         ui_queue.put((src_text, tr, src_lang))
 
     # 擷音執行緒
@@ -84,6 +98,8 @@ def main():
 
     def on_close():
         stop_event.set()
+        if exporter:
+            exporter.close()
         try:
             orig_destroy()
         except Exception:
@@ -104,6 +120,8 @@ def main():
 
     window.root.after(100, poll)
     window.run()
+    if exporter:
+        exporter.close()
     stop_event.set()
     cap.stop()
     cap.join(timeout=2)

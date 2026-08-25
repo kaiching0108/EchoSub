@@ -22,6 +22,9 @@ SILERO_VAD_MODEL = os.path.join(MODEL_DIR, "silero_vad.onnx")
 TMP_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tmp")
 os.makedirs(TMP_DIR, exist_ok=True)
 
+# 字幕自動匯出（雙語文字檔）目錄，專案下自動建立；每次執行一個時間戳檔
+EXPORT_DIR = os.path.join(_HERE, "logs")
+
 # 音訊設定
 SAMPLE_RATE = 16000
 CHANNELS = 1

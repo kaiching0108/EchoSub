@@ -13,3 +13,6 @@ models/*.int8.onnx
 
 # 執行時暫存
 tmp/
+
+# 字幕自動匯出（每次執行一個時間戳檔，不入 git）
+logs/

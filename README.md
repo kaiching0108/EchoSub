@@ -4,13 +4,12 @@
 文字稿，並翻譯成繁體中文，顯示在一個可拖動的浮動視窗裡。
 
  ✨ 重點特色
- 🔒 全程本機運算，音訊不會上傳雲端，隱私安全
- ⚡ 純 CPU 就能跑，不用顯卡、舊電腦也 OK
- 🌏 自動辨識 中/英/日/韓/粵 語，一律輸出繁體中文
- 🎵 影片有背景音樂也不怕，切句不會亂（Silero VAD）
- 🎵 字幕自動匯出
+ - 🔒 全程本機運算，音訊不會上傳雲端，隱私安全
+ - ⚡ 純 CPU 就能跑，不用顯卡、舊電腦也 OK
+ - 🌏 自動辨識 中/英/日/韓/粵 語，一律輸出繁體中文
+ - 🎵 影片有背景音樂也不怕，切句不會亂（Silero VAD）
+ - 🎵 字幕自動匯出
 
-<img width="857" height="212" alt="圖片" src="https://github.com/user-attachments/assets/1c602d55-f5ec-4fd5-a011-946f7aef6a1e" />
 
 <img width="857" height="212" alt="圖片" src="https://github.com/user-attachments/assets/1c602d55-f5ec-4fd5-a011-946f7aef6a1e" />
 
